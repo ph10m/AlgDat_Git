@@ -1,4 +1,5 @@
 from sys import stdin
+<<<<<<< HEAD
 import timeit
 import re
 from string import ascii_lowercase
@@ -74,3 +75,19 @@ for w in search_words:
 stop = timeit.default_timer()
 print '\n$$$ RUNTIME', '{0:.10f}'.format(stop-start), 'seconds'
 #print [m.start() for m in re.finditer(w, txt)]
+=======
+
+
+txt = ""
+nodes = {}
+for line in stdin:
+	for c in line:
+		txt += ' 'if c=='\n' else c
+
+#now we can work with the entire string with correct positions
+print txt
+
+ind = 0
+for c in txt:
+	
+>>>>>>> origin/master
