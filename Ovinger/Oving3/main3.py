@@ -1,8 +1,37 @@
 import sys
-import itertools
+import math
+# import itertools
 #from random import randint
 
 import timeit
+def merge(A):
+	half = None
+	output = []
+	_size = len(A)
+	if len(A)%2==0:
+		half = len(A)/2
+	else:
+		half = (len(A)+1)/2
+	left = A[:half]
+	right = A[half:]
+	left.append(1000001)
+	right.append(1000001)
+	#print ("Left: ",left)
+	#print("Right: ",right)
+	#print(left[0][1])
+	i,j=0,0
+	while len(output)<_size:
+		_l,_r = left[i][1], right[j][1]
+		if _l==1:
+			#left is smaller:
+			output.append(left[i])
+			i+=1
+		else:
+			output.append(right[j])
+			j+=1
+		#print ('Output[] = ',output)
+	
+	return None
 
 def quickSort(arr):
     less = []
@@ -24,25 +53,16 @@ def quickSort(arr):
         return less + pivotList + more
 
 def main():
-	rev_deck = {}
+	deck = []
 	nums = None
 	for line in sys.stdin:
 		(letter,nums) = line.strip().split(':')
 		nums = list(map(int, nums.split(',')))
 		for n in nums:
-			rev_deck[n]=letter
+			deck.append((letter,n))
 			
-	# print (rev_deck)
-
-	int_list = [v for v in rev_deck]
-	#print(int_list)
-	#QuickSort(int_list,0,len(int_list)-1)
-	int_list = quickSort(int_list)
-	#print(int_list)
-	word = ''
-	for q in int_list:
-		word+=rev_deck[q]
-	print (word)
+	#print(deck)
+	print(merge(deck))
 	
 start = timeit.default_timer()
 main()
