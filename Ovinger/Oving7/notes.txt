@@ -1,0 +1,20 @@
+[2, 2, 4] (widths)
+[3, 3, 5] (heights)
+[5, 4, 16] (values)
+
+paper size:
+
+10x3:
+10 width
+3  height
+
+What do?
+
+Look at the width:
+---------- (10)
+split it up with max rod value
+
+we have 2, 2 and 4 as widths, with 5, 4 and 16 in value
+
+
+kan kun få en gyldig penge-størrelse når man kutter arket i to

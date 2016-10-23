@@ -1,0 +1,12 @@
+#knapsack moneh
+
+def unbound_knap(w, v, c):			# weights, vals, capacity
+	@memo
+	def m(r):
+		if r == 0: return 0
+		val = m(r-1)
+		for i, wi in emuerate(w):
+			if wi > r: continue
+			val = max(val, val[i] + m(r-wi))
+		return val
+	return m(c)
